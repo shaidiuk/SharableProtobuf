@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>..\..\..\shared nupkg\</PackageOutputPath>
+    <Authors>VIacheslav</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.56.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="SharedProto\*.proto">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="SharedProto\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Protobuf Remove="SharedProto\DecimalProto.cs" />
+	</ItemGroup>
+</Project>

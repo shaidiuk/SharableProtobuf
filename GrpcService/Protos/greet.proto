@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "SharedProto/decimal_proto.proto";
+
+
+package GrpcService;
+
+// The greeting service definition.
+service Greeter {
+  rpc CustomMessage (CustomRequest) returns (CustomReply);
+}
+
+// The request message containing the user's name and imported from Nuget DecimalProto message
+message CustomRequest {
+  string name = 1;
+  DecimalProto decimal_cust = 2;
+}
+
+// The response message containing the greetings.
+message CustomReply {
+  string message = 1;
+}
